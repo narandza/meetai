@@ -13,6 +13,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Alert, AlertTitle } from "@/components/ui/alert";
+import { OctagonAlertIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -79,6 +82,15 @@ export const SignInView = () => {
                     )}
                   />
                 </div>
+                {true && (
+                  <Alert className="bg-destructive/10 border-none">
+                    <OctagonAlertIcon className="h-4 w-4 !text-destructive" />
+                    <AlertTitle>Error</AlertTitle>
+                  </Alert>
+                )}
+                <Button type="submit" className="w-full">
+                  Sign In
+                </Button>
               </div>
             </form>
           </Form>
