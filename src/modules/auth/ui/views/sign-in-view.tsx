@@ -97,16 +97,16 @@ export const SignInView = () => {
                     Or continue with
                   </span>
                 </div>
+
                 <div className="grid grid-cols-2 gap-4">
                   <Button variant="outline" type="button" className="w-full">
                     Google
                   </Button>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
                   <Button variant="outline" type="button" className="w-full">
                     GitHub
                   </Button>
                 </div>
+
                 <div className="text-center text-sm">
                   Don&apos;y have an account?{" "}
                   <Link
