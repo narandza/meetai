@@ -197,6 +197,16 @@ export const SignUpView = () => {
                     GitHub
                   </Button>
                 </div>
+
+                <div className="text-center text-sm">
+                  Already have an account?{" "}
+                  <Link
+                    href="/sign-in"
+                    className="underline underline-offset-4"
+                  >
+                    Sign In
+                  </Link>
+                </div>
               </div>
             </form>
           </Form>
@@ -207,6 +217,11 @@ export const SignUpView = () => {
           </div>
         </CardContent>
       </Card>
+
+      <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
+        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
+        and <a href="#">Privacy Policy</a>
+      </div>
     </div>
   );
 };
