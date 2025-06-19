@@ -128,10 +128,20 @@ export const SignInView = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <Button variant="outline" type="button" className="w-full">
+                  <Button
+                    variant="outline"
+                    type="button"
+                    className="w-full"
+                    disabled={isPending}
+                  >
                     Google
                   </Button>
-                  <Button variant="outline" type="button" className="w-full">
+                  <Button
+                    variant="outline"
+                    type="button"
+                    className="w-full"
+                    disabled={isPending}
+                  >
                     GitHub
                   </Button>
                 </div>
