@@ -29,6 +29,7 @@ const formSchema = z.object({
 export const SignInView = () => {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
+  const [isPending, setIsPending] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,6 +41,7 @@ export const SignInView = () => {
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     setError(null);
+    setIsPending(true);
 
     authClient.signIn.email(
       {
@@ -48,9 +50,11 @@ export const SignInView = () => {
       },
       {
         onSuccess: () => {
+          setIsPending(false);
           router.push("/");
         },
         onError: ({ error }) => {
+          setIsPending(false);
           setError(error.message);
         },
       }
@@ -114,7 +118,7 @@ export const SignInView = () => {
                     <AlertTitle>{error}</AlertTitle>
                   </Alert>
                 )}
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full" disabled={isPending}>
                   Sign In
                 </Button>
                 <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
