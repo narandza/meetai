@@ -139,6 +139,11 @@ export const SignInView = () => {
                   </Button>
                   <Button
                     variant="outline"
+                    onClick={() => {
+                      authClient.signIn.social({
+                        provider: "github",
+                      });
+                    }}
                     type="button"
                     className="w-full"
                     disabled={isPending}
