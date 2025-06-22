@@ -4,7 +4,6 @@ import { z } from "zod";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
 import { OctagonAlertIcon } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -28,7 +27,6 @@ const formSchema = z.object({
 });
 
 export const SignInView = () => {
-  const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [isPending, setIsPending] = useState(false);
 
@@ -48,11 +46,11 @@ export const SignInView = () => {
       {
         email: data.email,
         password: data.password,
+        callbackURL: "/",
       },
       {
         onSuccess: () => {
           setIsPending(false);
-          router.push("/");
         },
         onError: ({ error }) => {
           setIsPending(false);
@@ -69,11 +67,11 @@ export const SignInView = () => {
     authClient.signIn.social(
       {
         provider: provider,
+        callbackURL: "/",
       },
       {
         onSuccess: () => {
           setIsPending(false);
-          router.push("/");
         },
         onError: ({ error }) => {
           setIsPending(false);
