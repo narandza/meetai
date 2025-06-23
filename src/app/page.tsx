@@ -1,5 +1,15 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { authClient } from "@/lib/auth-client";
+
 export default function Home() {
-  return <div>Home page</div>;
+  const { data: session } = authClient.useSession();
+  return (
+    <div>
+      <p>Logged in as {session?.user.name}</p>
+
+      <Button onClick={() => authClient.signOut()}>Sign out</Button>
+    </div>
+  );
 }
