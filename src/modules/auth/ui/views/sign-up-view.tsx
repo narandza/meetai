@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { useRouter } from "next/navigation";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const formSchema = z
   .object({
@@ -212,7 +213,7 @@ export const SignUpView = () => {
                     className="w-full"
                     disabled={isPending}
                   >
-                    Google
+                    <FaGoogle />
                   </Button>
                   <Button
                     variant="outline"
@@ -221,7 +222,7 @@ export const SignUpView = () => {
                     className="w-full"
                     disabled={isPending}
                   >
-                    GitHub
+                    <FaGithub />
                   </Button>
                 </div>
 
