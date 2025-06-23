@@ -20,6 +20,7 @@ import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle } from "@/components/ui/alert";
+import { useRouter } from "next/navigation";
 
 const formSchema = z
   .object({
@@ -34,6 +35,8 @@ const formSchema = z
   });
 
 export const SignUpView = () => {
+  const router = useRouter();
+
   const [error, setError] = useState<string | null>(null);
   const [isPending, setIsPending] = useState(false);
 
@@ -61,6 +64,7 @@ export const SignUpView = () => {
       {
         onSuccess: () => {
           setIsPending(false);
+          router.push("/");
         },
         onError: ({ error }) => {
           setIsPending(false);

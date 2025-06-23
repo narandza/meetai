@@ -20,6 +20,7 @@ import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle } from "@/components/ui/alert";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -27,6 +28,8 @@ const formSchema = z.object({
 });
 
 export const SignInView = () => {
+  const router = useRouter();
+
   const [error, setError] = useState<string | null>(null);
   const [isPending, setIsPending] = useState(false);
 
@@ -51,6 +54,7 @@ export const SignInView = () => {
       {
         onSuccess: () => {
           setIsPending(false);
+          router.push("/");
         },
         onError: ({ error }) => {
           setIsPending(false);
