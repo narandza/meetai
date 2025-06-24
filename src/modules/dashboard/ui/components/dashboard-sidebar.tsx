@@ -1,6 +1,16 @@
 "use client";
 
-import { Sidebar, SidebarHeader } from "@/components/ui/sidebar";
+import { Separator } from "@/components/ui/separator";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
 import { BotIcon, StarIcon, VideoIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,6 +45,29 @@ export const DashboardSidebar = () => {
           <p className="text-2xl font-semibold">Meet.AI</p>
         </Link>
       </SidebarHeader>
+      <div className="px-4 py-2">
+        <Separator className="opacity-10 text-[#5d6d68]" />
+      </div>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {firstSection.map((item) => (
+                <SidebarMenuItem key={item.href}>
+                  <SidebarMenuButton>
+                    <Link href={item.href}>
+                      <item.icon className="size-5" />
+                      <span className="text-sm font-medium tracking-tight">
+                        {item.label}
+                      </span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
     </Sidebar>
   );
 };
