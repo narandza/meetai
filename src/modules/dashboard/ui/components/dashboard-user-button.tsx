@@ -2,10 +2,13 @@ import { GeneratedAvatar } from "@/components/generated-avatar";
 import { Avatar } from "@/components/ui/avatar";
 import {
   DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { authClient } from "@/lib/auth-client";
 import { AvatarImage } from "@radix-ui/react-avatar";
+import { ChevronDownIcon } from "lucide-react";
 
 export const DashboardUserButton = () => {
   const { data, isPending } = authClient.useSession();
@@ -32,7 +35,19 @@ export const DashboardUserButton = () => {
           <p className="text-sm truncate w-full">{data.user.name}</p>
           <p className="text-xs truncate w-full">{data.user.email}</p>
         </div>
+        <ChevronDownIcon className="size-4 shrink-0" />
       </DropdownMenuTrigger>
+
+      <DropdownMenuContent align="end" side="right" className="w-72">
+        <DropdownMenuLabel>
+          <div className="flex flex-col gap-1">
+            <span className="font-medium truncate">{data.user.name}</span>
+            <span className="text-sm font-normal text-muted-foreground truncate">
+              {data.user.email}
+            </span>
+          </div>
+        </DropdownMenuLabel>
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };
