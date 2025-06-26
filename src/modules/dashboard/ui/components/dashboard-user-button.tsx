@@ -3,12 +3,14 @@ import { Avatar } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { authClient } from "@/lib/auth-client";
 import { AvatarImage } from "@radix-ui/react-avatar";
-import { ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon, CreditCardIcon, LogOutIcon } from "lucide-react";
 
 export const DashboardUserButton = () => {
   const { data, isPending } = authClient.useSession();
@@ -47,6 +49,15 @@ export const DashboardUserButton = () => {
             </span>
           </div>
         </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem className="cursor-pointer flex items-center justify-between">
+          Billing
+          <CreditCardIcon className="size-4" />
+        </DropdownMenuItem>
+        <DropdownMenuItem className="cursor-pointer flex items-center justify-between">
+          Logout
+          <LogOutIcon className="size-4" />
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
