@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useSidebar } from "@/components/ui/sidebar";
-import { PanelLeftCloseIcon, PanelLeftIcon } from "lucide-react";
+import { PanelLeftCloseIcon, PanelLeftIcon, SearchIcon } from "lucide-react";
 
 export const DashboardNavbar = () => {
   const { state, toggleSidebar, isMobile } = useSidebar();
@@ -15,6 +15,18 @@ export const DashboardNavbar = () => {
         ) : (
           <PanelLeftCloseIcon className="size-4" />
         )}
+      </Button>
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={() => {}}
+        className="h-9 w-[240px] justify-start font-normal text-muted-foreground hover:text-muted-foreground "
+      >
+        <SearchIcon />
+        Search
+        <kbd>
+          <span className="">&#8984;</span>
+        </kbd>
       </Button>
     </nav>
   );
