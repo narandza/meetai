@@ -1,5 +1,6 @@
-import { GeneratedAvatar } from "@/components/generated-avatar";
-import { Avatar } from "@/components/ui/avatar";
+import { useRouter } from "next/navigation";
+import { ChevronDownIcon, CreditCardIcon, LogOutIcon } from "lucide-react";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,9 +10,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { authClient } from "@/lib/auth-client";
+import { Avatar } from "@/components/ui/avatar";
 import { AvatarImage } from "@radix-ui/react-avatar";
-import { ChevronDownIcon, CreditCardIcon, LogOutIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { GeneratedAvatar } from "@/components/generated-avatar";
 
 export const DashboardUserButton = () => {
   const router = useRouter();
