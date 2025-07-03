@@ -2,6 +2,15 @@ import { useRouter } from "next/navigation";
 import { ChevronDownIcon, CreditCardIcon, LogOutIcon } from "lucide-react";
 
 import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -11,18 +20,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { authClient } from "@/lib/auth-client";
 import { Avatar } from "@/components/ui/avatar";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { AvatarImage } from "@radix-ui/react-avatar";
 import { GeneratedAvatar } from "@/components/generated-avatar";
-import { useIsMobile } from "@/hooks/use-mobile";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+
 import { Button } from "@/components/ui/button";
 
 export const DashboardUserButton = () => {
